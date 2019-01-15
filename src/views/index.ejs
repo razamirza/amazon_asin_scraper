@@ -36,13 +36,24 @@
   </head>
   <body>
     <div id="search_form" class="container">
-      <h1>Welcome to <%= title %></h1>
-      <input id="input_asin" type="text" name="asin" placeholder="ASIN" required/>
-      <button id="button_fetch">Search</button>
+      <div id="search_form">
+        <h1>Welcome to <%= title %></h1>
+        <input id="input_asin" type="text" name="asin" placeholder="ASIN" required/>
+        <button id="button_fetch">Search</button>
+      </div>
+      <div style="padding-top: 5px;">
+        <b>Sample ASINs:</b>
+        <ul>
+          <li>B002QYW8LW</li>
+          <li>B006TIMNL6</li>
+          <li>B07D59SHX3</li>
+          <li>B002K9KVH6</li>
+        </ul>
+      </div>
+      <div id="product_detail" class="container product_detail_container "></div>
+      <script>
+        document.getElementById('button_fetch').addEventListener('click', fetchProductInfo);
+      </script>
     </div>
-    <div id="product_detail" class="container product_detail_container "></div>
-    <script>
-      document.getElementById('button_fetch').addEventListener('click', fetchProductInfo);
-    </script>
   </body>
 </html>
