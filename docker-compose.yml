@@ -1,0 +1,23 @@
+# docker-compose.yml
+
+# cache: I'm using redis
+cache:
+  image: redis
+  container_name: cache
+  expose:
+    - 6379
+
+app:
+  build: ./
+  volumes:
+    - ./src/:/var/www/app
+  ports:
+    - 3000:3000
+  environment:
+    - REDIS_URL=redis://cache
+    - NODE_ENV=development
+    - PORT=3000
+  links:
+    - cache:redis
+  command:
+    sh -c 'npm install && npm start'
